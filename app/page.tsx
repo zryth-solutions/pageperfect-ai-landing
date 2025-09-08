@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { 
-  BookOpen, 
   Sparkles, 
   Bot, 
   CheckCircle, 
@@ -420,7 +419,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 text-sm sm:text-base">
-                "PagePerfect AI transformed our educational content quality. With their custom knowledge base, we achieved 99.9% accuracy in textbook auditing. The agentic workflows reduced our review time by 10x while maintaining our high standards."
+                &ldquo;PagePerfect AI transformed our educational content quality. With their custom knowledge base, we achieved 99.9% accuracy in textbook auditing. The agentic workflows reduced our review time by 10x while maintaining our high standards.&rdquo;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex-shrink-0" />
@@ -441,7 +440,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 text-sm sm:text-base">
-                "The agentic workflows are phenomenal. We automated our entire manuscript review pipeline and reduced errors by 95%. The 10x efficiency boost is real - ROI was immediate."
+                &ldquo;The agentic workflows are phenomenal. We automated our entire manuscript review pipeline and reduced errors by 95%. The 10x efficiency boost is real - ROI was immediate.&rdquo;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex-shrink-0" />
@@ -462,7 +461,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 text-sm sm:text-base">
-                "As an author, PagePerfect AI's accuracy is unmatched. The AI catches subtle plot inconsistencies and character development issues that human editors miss. It's like having a super-powered editor."
+                &ldquo;As an author, PagePerfect AI&rsquo;s accuracy is unmatched. The AI catches subtle plot inconsistencies and character development issues that human editors miss. It&rsquo;s like having a super-powered editor.&rdquo;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex-shrink-0" />
@@ -616,7 +615,7 @@ export default function Home() {
             
             <div className="text-center mb-6">
               <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">Get Started with PagePerfect AI</h3>
-              <p className="text-gray-600 text-sm sm:text-base">Let's discuss your content auditing needs and analyze your books for quality</p>
+              <p className="text-gray-600 text-sm sm:text-base">Let&rsquo;s discuss your content auditing needs and analyze your books for quality</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">

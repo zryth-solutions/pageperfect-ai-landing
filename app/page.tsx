@@ -6,10 +6,8 @@ import Link from "next/link";
 import { 
   Sparkles, 
   Bot, 
-  CheckCircle, 
   ArrowRight,
   Zap,
-  Shield,
   Target,
   Users,
   BarChart3,
@@ -17,13 +15,11 @@ import {
   Star,
   Brain,
   X,
-  Play,
   Send,
   Phone,
   Mail,
   FileCheck,
   Languages,
-  FileText,
   Layout,
   Image,
   GraduationCap,
@@ -31,7 +27,6 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  const [showDemoModal, setShowDemoModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({

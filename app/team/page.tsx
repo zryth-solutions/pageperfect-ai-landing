@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Sparkles, ArrowLeft, Linkedin } from "lucide-react";
+import NextImage from "next/image";
 
 const teamMembers = [
   {
@@ -81,20 +82,12 @@ export default function TeamPage() {
                   <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-purple-500 p-1">
                     <div className="w-full h-full rounded-full bg-white p-1 flex items-center justify-center overflow-hidden">
                       {member.image ? (
-                        <img
+                        <NextImage
                           src={member.image}
                           alt={member.name}
+                          width={160}
+                          height={160}
                           className="w-full h-full object-cover rounded-full"
-                          onError={(e) => {
-                            // Fallback to initial-based avatar if image fails to load
-                            e.currentTarget.style.display = 'none';
-                            if (!e.currentTarget.nextElementSibling) {
-                              const fallback = document.createElement('div');
-                              fallback.className = 'w-full h-full rounded-full bg-gradient-to-br from-blue-200 to-purple-200 flex items-center justify-center text-4xl font-bold text-gray-700';
-                              fallback.textContent = member.name.charAt(0);
-                              e.currentTarget.parentElement?.appendChild(fallback);
-                            }
-                          }}
                         />
                       ) : (
                         <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-200 to-purple-200 flex items-center justify-center text-4xl sm:text-5xl font-bold text-gray-700">

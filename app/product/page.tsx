@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import { 
   Upload, 
   FileText, 
@@ -16,7 +17,15 @@ import {
   Zap,
   Target,
   X,
-  Sparkles
+  Sparkles,
+  Users,
+  BookOpen,
+  Database,
+  FileCheck,
+  Plus,
+  Trash2,
+  BarChart3,
+  Link as LinkIcon
 } from "lucide-react";
 
 interface AnalysisResult {
@@ -31,6 +40,7 @@ interface AnalysisResult {
     confidence: number;
     category: string;
     detailedExplanation?: string;
+    knowledgeBaseReference?: string;
   }>;
   corrections: Array<{
     id: string;
@@ -101,7 +111,7 @@ interface KnowledgeBaseItem {
 
 export default function DemoPage() {
   const [currentStep, setCurrentStep] = useState<'upload' | 'analyzing' | 'results'>('upload');
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [, setUploadedFile] = useState<File | null>(null);
   const [analysisProgress, setAnalysisProgress] = useState(0);
   const [currentTask, setCurrentTask] = useState('');
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
@@ -166,7 +176,7 @@ export default function DemoPage() {
         suggestion: "The character's motivation was unclear, and its actions seemed contradictory.",
         confidence: 95,
         category: 'Grammar & Syntax',
-        detailedExplanation: "This is a common possessive pronoun error. 'It's' is a contraction for 'it is' or 'it has', while 'its' is the possessive form. This correction follows the Chicago Manual of Style Guide (95% relevance) from your knowledge base.",
+        detailedExplanation: "This is a common possessive pronoun error. It&apos;s is a contraction for &apos;it is&apos; or &apos;it has&apos;, while &apos;its&apos; is the possessive form. This correction follows the Chicago Manual of Style Guide (95% relevance) from your knowledge base.",
         knowledgeBaseReference: "Chicago Manual of Style Guide - Section 5.2"
       },
       {
@@ -493,7 +503,7 @@ export default function DemoPage() {
     }
   };
 
-  const addKnowledgeBaseItem = (item: Omit<KnowledgeBaseItem, 'id'>) => {
+  const _addKnowledgeBaseItem = (item: Omit<KnowledgeBaseItem, 'id'>) => {
     const newItem: KnowledgeBaseItem = {
       ...item,
       id: Date.now().toString()
@@ -547,13 +557,13 @@ export default function DemoPage() {
               >
                 Reset Demo
               </button>
-              <a
+              <Link
                 href="/"
                 className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-gray-900 transition"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back to Home</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -780,7 +790,7 @@ export default function DemoPage() {
                     ].map((tab) => (
                       <button
                         key={tab.id}
-                        onClick={() => setActiveTab(tab.id as any)}
+                        onClick={() => setActiveTab(tab.id as typeof activeTab)}
                         className={`py-4 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 ${
                           activeTab === tab.id
                             ? 'border-blue-500 text-blue-600'
@@ -890,7 +900,7 @@ export default function DemoPage() {
                                     {error.knowledgeBaseReference && (
                                       <div className="mt-2 p-2 bg-blue-100 rounded border-l-4 border-blue-400">
                                         <div className="flex items-center text-xs text-blue-700">
-                                          <Link className="w-3 h-3 mr-1" />
+                                          <LinkIcon className="w-3 h-3 mr-1" />
                                           <strong>Knowledge Base Reference:</strong> {error.knowledgeBaseReference}
                                         </div>
                                       </div>

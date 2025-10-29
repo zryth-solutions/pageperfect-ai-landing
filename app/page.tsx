@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 import { 
   Sparkles, 
   Bot, 
@@ -19,12 +20,20 @@ import {
   Play,
   Send,
   Phone,
-  Mail
+  Mail,
+  FileCheck,
+  Languages,
+  FileText,
+  Layout,
+  Image,
+  GraduationCap,
+  Menu
 } from "lucide-react";
 
 export default function Home() {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -77,6 +86,9 @@ export default function Home() {
               <a href="#features" className="text-gray-600 hover:text-gray-900 transition">Features</a>
               <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition">Pricing</a>
               <a href="#testimonials" className="text-gray-600 hover:text-gray-900 transition">Testimonials</a>
+              <Link href="/team" className="text-gray-600 hover:text-gray-900 transition">
+                Our Team
+              </Link>
               <button 
                 onClick={() => setShowContactModal(true)}
                 className="px-4 sm:px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:opacity-90 transition text-sm sm:text-base"
@@ -85,12 +97,63 @@ export default function Home() {
               </button>
             </div>
             {/* Mobile menu button */}
-            <button className="md:hidden p-2 text-gray-600 hover:text-gray-900 transition">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 text-gray-600 hover:text-gray-900 transition"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
+          
+          {/* Mobile menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden border-t border-gray-200 mt-4 pt-4 pb-4">
+              <div className="flex flex-col space-y-4 px-4">
+                <a 
+                  href="#features" 
+                  className="text-gray-600 hover:text-gray-900 transition py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Features
+                </a>
+                <a 
+                  href="#pricing" 
+                  className="text-gray-600 hover:text-gray-900 transition py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Pricing
+                </a>
+                <a 
+                  href="#testimonials" 
+                  className="text-gray-600 hover:text-gray-900 transition py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Testimonials
+                </a>
+                <Link 
+                  href="/team"
+                  className="text-gray-600 hover:text-gray-900 transition py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Our Team
+                </Link>
+                <button 
+                  onClick={() => {
+                    setShowContactModal(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:opacity-90 transition text-sm w-full text-left"
+                >
+                  Get Started
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -120,12 +183,6 @@ export default function Home() {
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition text-sm sm:text-base"
               >
                 Start Free Trial <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-              </button>
-              <button 
-                onClick={() => setShowDemoModal(true)}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 glass-effect rounded-full font-semibold hover:bg-gray-100 transition text-sm sm:text-base text-gray-700"
-              >
-                View Demo
               </button>
             </div>
           </motion.div>
@@ -188,8 +245,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl hover:scale-105 transition-transform"
-              whileHover={{ y: -10 }}
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
               <Target className="w-10 h-10 sm:w-12 sm:h-12 text-blue-500 mb-4" />
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Unmatched Accuracy</h3>
@@ -199,19 +255,7 @@ export default function Home() {
             </motion.div>
 
             <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl hover:scale-105 transition-transform"
-              whileHover={{ y: -10 }}
-            >
-              <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-purple-500 mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Custom Knowledge Base</h3>
-              <p className="text-gray-600 text-sm sm:text-base">
-                Upload your style guides, previous works, and reference materials. Our AI learns your unique voice and requirements for perfectly tailored audits.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl hover:scale-105 transition-transform"
-              whileHover={{ y: -10 }}
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
               <Bot className="w-10 h-10 sm:w-12 sm:h-12 text-green-500 mb-4" />
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Agentic Workflows</h3>
@@ -219,12 +263,9 @@ export default function Home() {
                 Automated multi-step review processes that handle complex editing tasks, fact-checking, and consistency validation across entire manuscripts.
               </p>
             </motion.div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8">
             <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl hover:scale-105 transition-transform"
-              whileHover={{ y: -10 }}
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
               <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-yellow-500 mb-4" />
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">10x Efficiency Boost</h3>
@@ -232,16 +273,88 @@ export default function Home() {
                 Review entire manuscripts in minutes, not days. Our parallel processing handles multiple chapters simultaneously while maintaining consistency.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Offerings Section */}
+      <section id="offerings" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-12 sm:mb-16"
+            {...fadeIn}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+              Our <span className="gradient-text">Product Offerings</span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">Comprehensive AI-powered solutions for book publishing and content creation</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <motion.div 
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
+            >
+              <FileCheck className="w-10 h-10 sm:w-12 sm:h-12 text-blue-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI-powered Book Proofreader</h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-4">
+                Detects grammatical, contextual, and stylistic errors, providing improvement suggestions for enhanced book quality.
+              </p>
+              <p className="text-sm font-semibold text-blue-600">For pricing contact us</p>
+            </motion.div>
 
             <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl hover:scale-105 transition-transform"
-              whileHover={{ y: -10 }}
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
-              <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-red-500 mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Enterprise Security</h3>
-              <p className="text-gray-600 text-sm sm:text-base">
-                Bank-level encryption, SOC 2 compliance, and complete data privacy. Your manuscripts are protected with industry-leading security protocols.
+              <Languages className="w-10 h-10 sm:w-12 sm:h-12 text-purple-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Multilingual Publishing AI Agent</h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-4">
+                Translates and localizes books into multiple languages, eliminating expensive translation costs.
               </p>
+              <p className="text-sm font-semibold text-purple-600">For pricing contact us</p>
+            </motion.div>
+
+            <motion.div 
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
+            >
+              <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-green-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI Book Content Generator</h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-4">
+                Generates structured book content based on topic, plot, and author style, including educational and research-oriented material.
+              </p>
+              <p className="text-sm font-semibold text-green-600">For pricing contact us</p>
+            </motion.div>
+
+            <motion.div 
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
+            >
+              <Layout className="w-10 h-10 sm:w-12 sm:h-12 text-yellow-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI Template and Style Sheet Generator</h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-4">
+                Creates ready-to-use professional book layouts and design frameworks.
+              </p>
+              <p className="text-sm font-semibold text-yellow-600">For pricing contact us</p>
+            </motion.div>
+
+            <motion.div 
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
+            >
+              <Image className="w-10 h-10 sm:w-12 sm:h-12 text-pink-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Book Cover Generator</h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-4">
+                Designs context-aware and brand-aligned book covers using AI.
+              </p>
+              <p className="text-sm font-semibold text-pink-600">For pricing contact us</p>
+            </motion.div>
+
+            <motion.div 
+              className="glass-effect p-6 sm:p-8 rounded-2xl"
+            >
+              <GraduationCap className="w-10 h-10 sm:w-12 sm:h-12 text-indigo-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Interactive Learning Generators</h3>
+              <p className="text-gray-600 text-sm sm:text-base mb-4">
+                Develops e-learning modules and interactive content for educational publishers.
+              </p>
+              <p className="text-sm font-semibold text-indigo-600">For pricing contact us</p>
             </motion.div>
           </div>
         </div>
@@ -255,143 +368,45 @@ export default function Home() {
             {...fadeIn}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-              Simple, Transparent <span className="gradient-text">Pricing</span>
+              Flexible <span className="gradient-text">Pricing</span>
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600">Pay per page, scale as you grow</p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">Feature-wise pricing tailored to your needs</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {/* Basic Plan */}
-            <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl"
-              whileHover={{ scale: 1.05 }}
+          <motion.div 
+            className="glass-effect p-8 sm:p-12 rounded-3xl max-w-4xl mx-auto text-center"
+          >
+            <div className="mb-6 sm:mb-8">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Custom Pricing for Every Client</h3>
+              <p className="text-base sm:text-lg text-gray-600 mb-6">
+                We offer feature-wise pricing with customized plans for different clients. Our flexible pricing model ensures you only pay for what you need.
+              </p>
+            </div>
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 sm:p-8 mb-6 sm:mb-8">
+              <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">For Pricing Contact Us</p>
+              <p className="text-sm sm:text-base text-gray-600 mb-4">
+                Get a personalized quote based on your specific requirements and scale.
+              </p>
+            </div>
+            <button 
+              onClick={() => setShowContactModal(true)}
+              className="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:opacity-90 transition text-sm sm:text-base flex items-center justify-center gap-2 mx-auto"
             >
-              <div className="mb-6 sm:mb-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">Basic</h3>
-                <p className="text-gray-600 text-sm sm:text-base">Essential AI auditing</p>
+              Contact Us for Pricing <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600">
+                <div className="flex items-center justify-center gap-2">
+                  <Phone className="w-4 h-4 text-blue-500" />
+                  <a href="tel:+919870661438" className="hover:text-blue-600 transition">+91-9870661438</a>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <Mail className="w-4 h-4 text-purple-500" />
+                  <a href="mailto:contact@zryth.com" className="hover:text-purple-600 transition">contact@zryth.com</a>
+                </div>
               </div>
-              <div className="mb-6 sm:mb-8">
-                <span className="text-4xl sm:text-5xl font-bold text-gray-900">$0.24</span>
-                <span className="text-gray-600 text-sm sm:text-base">/page</span>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">₹20 per page</p>
-              </div>
-              <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Grammar & spelling check</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Basic style consistency</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Standard processing speed</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Export in PDF/DOCX</span>
-                </li>
-              </ul>
-              <button 
-                onClick={() => setShowContactModal(true)}
-                className="w-full py-3 sm:py-3 glass-effect rounded-full hover:bg-gray-100 transition text-sm sm:text-base font-semibold text-gray-700"
-              >
-                Get Started
-              </button>
-            </motion.div>
-
-            {/* Professional Plan */}
-            <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl border-2 border-blue-500 relative"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 px-3 sm:px-4 py-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-xs sm:text-sm text-white">
-                Most Popular
-              </div>
-              <div className="mb-6 sm:mb-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">Professional</h3>
-                <p className="text-gray-600 text-sm sm:text-base">With custom knowledge base</p>
-              </div>
-              <div className="mb-6 sm:mb-8">
-                <span className="text-4xl sm:text-5xl font-bold text-gray-900">$0.48</span>
-                <span className="text-gray-600 text-sm sm:text-base">/page</span>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">₹40 per page</p>
-              </div>
-              <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Everything in Basic</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Custom knowledge base</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Style guide integration</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Priority processing</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Advanced analytics</span>
-                </li>
-              </ul>
-              <button 
-                onClick={() => setShowContactModal(true)}
-                className="w-full py-3 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:opacity-90 transition text-sm sm:text-base font-semibold"
-              >
-                Get Started
-              </button>
-            </motion.div>
-
-            {/* Enterprise Plan */}
-            <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="mb-6 sm:mb-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">Enterprise</h3>
-                <p className="text-gray-600 text-sm sm:text-base">AI agent + knowledge base</p>
-              </div>
-              <div className="mb-6 sm:mb-8">
-                <span className="text-4xl sm:text-5xl font-bold text-gray-900">$0.72</span>
-                <span className="text-gray-600 text-sm sm:text-base">/page</span>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">₹60 per page</p>
-              </div>
-              <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Everything in Professional</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">AI agent workflows</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Multi-document analysis</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">API access</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm sm:text-base text-gray-600">Dedicated support</span>
-                </li>
-              </ul>
-              <button 
-                onClick={() => setShowContactModal(true)}
-                className="w-full py-3 sm:py-3 glass-effect rounded-full hover:bg-gray-100 transition text-sm sm:text-base font-semibold text-gray-700"
-              >
-                Contact Sales
-              </button>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -408,10 +423,9 @@ export default function Home() {
             <p className="text-base sm:text-lg md:text-xl text-gray-600">See what authors and publishers say about us</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
             <motion.div 
               className="glass-effect p-6 sm:p-8 rounded-2xl"
-              whileHover={{ y: -10 }}
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -432,7 +446,6 @@ export default function Home() {
 
             <motion.div 
               className="glass-effect p-6 sm:p-8 rounded-2xl"
-              whileHover={{ y: -10 }}
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -445,29 +458,8 @@ export default function Home() {
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex-shrink-0" />
                 <div>
-                  <div className="font-semibold text-gray-900 text-sm sm:text-base">Michael Chen</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Bestselling Author</div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              className="glass-effect p-6 sm:p-8 rounded-2xl"
-              whileHover={{ y: -10 }}
-            >
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">
-                &ldquo;As an author, PagePerfect AI&rsquo;s accuracy is unmatched. The AI catches subtle plot inconsistencies and character development issues that human editors miss. It&rsquo;s like having a super-powered editor.&rdquo;
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex-shrink-0" />
-                <div>
-                  <div className="font-semibold text-gray-900 text-sm sm:text-base">Emily Rodriguez</div>
-                  <div className="text-xs sm:text-sm text-gray-600">CEO, Literary Studios</div>
+                  <div className="font-semibold text-gray-900 text-sm sm:text-base">PBPD Publications</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Publishing House</div>
                 </div>
               </div>
             </motion.div>
@@ -495,12 +487,6 @@ export default function Home() {
               >
                 Start Free Trial <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
-              <button 
-                onClick={() => setShowDemoModal(true)}
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 glass-effect rounded-full font-semibold hover:bg-gray-100 transition text-sm sm:text-base text-gray-700"
-              >
-                Schedule Demo
-              </button>
             </div>
             <p className="text-xs sm:text-sm text-gray-500 mt-4 sm:mt-6">No credit card required • 14-day free trial</p>
           </motion.div>
@@ -510,8 +496,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-200 py-8 sm:py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
-            <div className="sm:col-span-2 lg:col-span-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
+            <div>
               <div className="flex items-center space-x-2 mb-4">
                 <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
                 <span className="text-lg sm:text-xl font-bold gradient-text">PagePerfect AI</span>
@@ -520,35 +506,16 @@ export default function Home() {
                 Professional AI book auditing and content quality solutions by <a href="https://zryth.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition underline">Zryth Solutions</a>
               </p>
               <div className="text-gray-600 text-sm space-y-1">
-                <p>📞 <a href="tel:+917455900568" className="hover:text-blue-600 transition">+91-7455900568</a></p>
+                <p>📞 <a href="tel:+919870661438" className="hover:text-blue-600 transition">+91-9870661438</a></p>
                 <p>✉️ <a href="mailto:contact@zryth.com" className="hover:text-blue-600 transition">contact@zryth.com</a></p>
               </div>
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-gray-900">Product</h4>
               <ul className="space-y-2 text-gray-600 text-sm">
-                <li><a href="#" className="hover:text-gray-900 transition">Features</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Pricing</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">API Docs</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Integrations</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900">Company</h4>
-              <ul className="space-y-2 text-gray-600 text-sm">
-                <li><a href="#" className="hover:text-gray-900 transition">About</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Blog</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Careers</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900">Legal</h4>
-              <ul className="space-y-2 text-gray-600 text-sm">
-                <li><a href="#" className="hover:text-gray-900 transition">Privacy</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Terms</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Security</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition">Compliance</a></li>
+                <li><a href="#features" className="hover:text-gray-900 transition">Features</a></li>
+                <li><a href="#pricing" className="hover:text-gray-900 transition">Pricing</a></li>
+                <li><Link href="/team" className="hover:text-gray-900 transition">Our Team</Link></li>
               </ul>
             </div>
           </div>
@@ -564,38 +531,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      {/* Demo Video Modal */}
-      {showDemoModal && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <motion.div 
-            className="bg-white rounded-2xl p-6 max-w-4xl w-full relative shadow-2xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-          >
-            <button 
-              onClick={() => setShowDemoModal(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <h3 className="text-2xl font-bold mb-4 text-center text-gray-900">PagePerfect AI Demo</h3>
-            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <Play className="w-16 h-16 text-blue-500 mx-auto mb-4" />
-                <p className="text-gray-600 mb-4">Watch our demo video to see PagePerfect AI in action</p>
-                <div className="bg-gray-50 rounded-lg p-4 max-w-md mx-auto">
-                  <p className="text-sm text-gray-700 mb-2">Demo Video Coming Soon!</p>
-                  <p className="text-xs text-gray-500">
-                    Contact us at <a href="mailto:contact@zryth.com" className="text-blue-500 hover:underline">contact@zryth.com</a> to schedule a live demo
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      )}
 
       {/* Contact Form Modal */}
       {showContactModal && (
@@ -672,16 +607,20 @@ export default function Home() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Plan Interest</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Product Interest</label>
                 <select
                   name="plan"
                   value={formData.plan}
                   onChange={handleInputChange}
                   className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:border-blue-500 focus:outline-none transition text-sm sm:text-base"
                 >
-                  <option value="Basic">Basic ($0.24/page)</option>
-                  <option value="Professional">Professional ($0.48/page)</option>
-                  <option value="Enterprise">Enterprise ($0.72/page)</option>
+                  <option value="Basic">AI-powered Book Proofreader</option>
+                  <option value="Professional">Multilingual Publishing AI Agent</option>
+                  <option value="Enterprise">AI Book Content Generator</option>
+                  <option value="Templates">AI Template and Style Sheet Generator</option>
+                  <option value="Cover">Book Cover Generator</option>
+                  <option value="Learning">Interactive Learning Generators</option>
+                  <option value="Multiple">Multiple Products</option>
                   <option value="Not Sure">Not Sure - Need Consultation</option>
                 </select>
               </div>
@@ -719,9 +658,9 @@ export default function Home() {
               <div className="text-center text-xs sm:text-sm text-gray-500">
                 <p>Or contact us directly:</p>
                 <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 mt-2">
-                  <a href="tel:+917455900568" className="flex items-center justify-center gap-2 hover:text-blue-600 transition">
+                  <a href="tel:+919870661438" className="flex items-center justify-center gap-2 hover:text-blue-600 transition">
                     <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
-                    +91-7455900568
+                    +91-9870661438
                   </a>
                   <a href="mailto:contact@zryth.com" className="flex items-center justify-center gap-2 hover:text-blue-600 transition">
                     <Mail className="w-3 h-3 sm:w-4 sm:h-4" />

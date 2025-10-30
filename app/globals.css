@@ -34,3 +34,24 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* (removed old revolving border styles per new demo button) */
+
+/* Blinking cursor for typewriter effect */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Ensure cursor is visible over gradient text */
+.gradient-text .typing-cursor {
+  color: #3d195f; /* gray-900 */
+  -webkit-text-fill-color: #131127;
+  font-weight: 200;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

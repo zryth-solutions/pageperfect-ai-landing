@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import Navbar from "@/components/Navbar";
 import { 
-  Sparkles, 
   Bot, 
   ArrowRight,
   Zap,
@@ -22,13 +22,13 @@ import {
   Languages,
   Layout,
   Image,
-  GraduationCap,
-  Menu
+  GraduationCap
 } from "lucide-react";
+import TryItOut from "@/components/TryItOut";
 
 export default function Home() {
+  const searchParams = useSearchParams();
   const [showContactModal, setShowContactModal] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,6 +37,53 @@ export default function Home() {
     message: '',
     plan: 'Basic'
   });
+  
+  // Hero typewriter effect with erase-and-type cycle
+  const heroPhrases = [
+    "10x Your Efficiency",
+    "Works in Weeknds",
+    "Works 24 x 7",
+  ];
+  const [heroPhraseIndex, setHeroPhraseIndex] = useState(0);
+  const [typedText, setTypedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  useEffect(() => {
+    const currentPhrase = heroPhrases[heroPhraseIndex];
+    const baseTypeSpeed = 100; // ms per character while typing
+    const baseDeleteSpeed = 50; // ms per character while deleting
+    const endHoldMs = 3000; // pause after full phrase typed (3s)
+    const startHoldMs = 500; // brief pause before typing next phrase after delete
+
+    let timeoutDelay = isDeleting ? baseDeleteSpeed : baseTypeSpeed;
+
+    if (!isDeleting && typedText === currentPhrase) {
+      timeoutDelay = endHoldMs;
+    } else if (isDeleting && typedText === "") {
+      timeoutDelay = startHoldMs;
+    }
+
+    const timeoutId = setTimeout(() => {
+      if (!isDeleting) {
+        // If full phrase is shown, after the hold switch to deleting
+        if (typedText === currentPhrase) {
+          setIsDeleting(true);
+          return;
+        }
+        const next = currentPhrase.slice(0, typedText.length + 1);
+        setTypedText(next);
+      } else {
+        const next = currentPhrase.slice(0, Math.max(typedText.length - 1, 0));
+        setTypedText(next);
+        if (next === "") {
+          setIsDeleting(false);
+          setHeroPhraseIndex((prev) => (prev + 1) % heroPhrases.length);
+        }
+      }
+    }, timeoutDelay);
+
+    return () => clearTimeout(timeoutId);
+  }, [typedText, isDeleting, heroPhraseIndex]);
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -51,106 +98,23 @@ export default function Home() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    alert('Thank you for your interest! We will contact you soon to discuss your content auditing needs.');
-    setShowContactModal(false);
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      message: '',
-      plan: 'Basic'
-    });
-  };
+  const [nextUrl, setNextUrl] = useState<string>("/");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setNextUrl(`${window.location.origin}/?lead=1`);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (searchParams.get("lead") === "1") {
+      alert("Your form has been submitted. We will contact you within 24 hours.");
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 glass-effect border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
-              <span className="text-lg sm:text-xl font-bold gradient-text">PagePerfect AI</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition">Features</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition">Pricing</a>
-              <a href="#testimonials" className="text-gray-600 hover:text-gray-900 transition">Testimonials</a>
-              <Link href="/team" className="text-gray-600 hover:text-gray-900 transition">
-                Our Team
-              </Link>
-              <button 
-                onClick={() => setShowContactModal(true)}
-                className="px-4 sm:px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:opacity-90 transition text-sm sm:text-base"
-              >
-                Get Started
-              </button>
-            </div>
-            {/* Mobile menu button */}
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-600 hover:text-gray-900 transition"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-          
-          {/* Mobile menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 mt-4 pt-4 pb-4">
-              <div className="flex flex-col space-y-4 px-4">
-                <a 
-                  href="#features" 
-                  className="text-gray-600 hover:text-gray-900 transition py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Features
-                </a>
-                <a 
-                  href="#pricing" 
-                  className="text-gray-600 hover:text-gray-900 transition py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Pricing
-                </a>
-                <a 
-                  href="#testimonials" 
-                  className="text-gray-600 hover:text-gray-900 transition py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Testimonials
-                </a>
-                <Link 
-                  href="/team"
-                  className="text-gray-600 hover:text-gray-900 transition py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Our Team
-                </Link>
-                <button 
-                  onClick={() => {
-                    setShowContactModal(true);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full hover:opacity-90 transition text-sm w-full text-left"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+      <Navbar onGetStartedClick={() => setShowContactModal(true)} currentPath="/" />
 
       {/* Hero Section */}
       <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6">
@@ -166,7 +130,10 @@ export default function Home() {
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gray-900">
               AI Book Auditing That
-              <span className="block gradient-text">10x Your Efficiency</span>
+              <span className="block gradient-text" aria-live="polite">
+                {typedText}
+                <span className="typing-cursor">|</span>
+              </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
               Professional manuscript review with unmatched accuracy, custom knowledge base integration, and agentic workflows. 
@@ -355,6 +322,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Try It Out Section */}
+      <TryItOut />
+
       {/* Pricing Section */}
       <section id="pricing" className="py-12 sm:py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
@@ -488,44 +458,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-200 py-8 sm:py-12 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
-                <span className="text-lg sm:text-xl font-bold gradient-text">PagePerfect AI</span>
-              </div>
-              <p className="text-gray-600 text-sm mb-4">
-                Professional AI book auditing and content quality solutions by <a href="https://zryth.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition underline">Zryth Solutions</a>
-              </p>
-              <div className="text-gray-600 text-sm space-y-1">
-                <p>📞 <a href="tel:+919870661438" className="hover:text-blue-600 transition">+91-9870661438</a></p>
-                <p>✉️ <a href="mailto:contact@zryth.com" className="hover:text-blue-600 transition">contact@zryth.com</a></p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-900">Product</h4>
-              <ul className="space-y-2 text-gray-600 text-sm">
-                <li><a href="#features" className="hover:text-gray-900 transition">Features</a></li>
-                <li><a href="#pricing" className="hover:text-gray-900 transition">Pricing</a></li>
-                <li><Link href="/team" className="hover:text-gray-900 transition">Our Team</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-6 sm:pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-600 text-sm">
-              © 2024 Zryth Solutions. All rights reserved.
-            </p>
-            <div className="flex gap-4 sm:gap-6 mt-4 sm:mt-0">
-              <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 hover:text-gray-900 cursor-pointer transition" />
-              <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 hover:text-gray-900 cursor-pointer transition" />
-              <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 hover:text-gray-900 cursor-pointer transition" />
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Footer is now global via RootLayout */}
 
       {/* Contact Form Modal */}
       {showContactModal && (
@@ -548,7 +481,15 @@ export default function Home() {
               <p className="text-gray-600 text-sm sm:text-base">Let&rsquo;s discuss your content auditing needs and analyze your books for quality</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <form
+              action="https://formsubmit.co/kushagra@zryth.com"
+              method="POST"
+              className="space-y-4 sm:space-y-6"
+            >
+              <input type="hidden" name="_cc" value="sharshit416@gmail.com, manas@zryth.com" />
+              <input type="hidden" name="_subject" value="New Get Started Request - PagePerfect AI" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value={nextUrl} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>

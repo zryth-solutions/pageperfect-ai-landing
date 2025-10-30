@@ -2,28 +2,65 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Sparkles, ArrowLeft, Linkedin } from "lucide-react";
+import { ArrowLeft, Linkedin } from "lucide-react";
 import NextImage from "next/image";
+import Navbar from "@/components/Navbar";
 
 const teamMembers = [
   {
     name: "Kushagra Agarwal",
     role: "Founder & CEO",
-    linkedin: "https://www.linkedin.com/in/kushagra-agarwal",
-    image: "/team/kushagra.jpg" // You'll need to add the actual image
+    linkedin: "https://www.linkedin.com/in/codewithkushagra/",
+    image: "https://i.postimg.cc/L5xLwbnL/kushagra.jpg" // External image URL
   },
   {
     name: "Manas Dewari",
     role: "Co-Founder",
     linkedin: "https://www.linkedin.com/in/manas-dewari",
-    image: "/team/manas.jpg" // You'll need to add the actual image
+    image: "https://i.postimg.cc/qq1yS5zv/manas.jpg" // External image URL
   },
   {
     name: "Apurv Shashvat",
     role: "AI Engineer",
     linkedin: "https://www.linkedin.com/in/apurv-shashvat",
-    image: "/team/apurv.jpg" // You'll need to add the actual image
-  }
+    image: "https://i.postimg.cc/sfmYMvw1/apurv.jpg" // External image URL
+  },
+  {
+    name: "Shashank Kumar",
+    role: "AI Engineer",
+    linkedin: "https://www.linkedin.com/in/shashank-kumar-4b6a80206/",
+    image: "https://i.postimg.cc/50LcZnZc/shashank.jpg" // External image URL
+  },
+  {
+    name: "Malay Dewari",
+    role: "Full Stack Engineer",
+    linkedin: "https://www.linkedin.com/in/malay-dewari/",
+    image: "https://i.postimg.cc/KcfP1RJ8/malay.jpg" // External image URL
+  },
+  {
+    name: "Devansh Sharma ",
+    role: "AI Engineer",
+    linkedin: "https://www.linkedin.com/in/adawatia/",
+    image: "https://i.postimg.cc/WzVRj0vP/dewansh.png" // External image URL
+  },
+  {
+    name: "Himanshu Shekhar",
+    role: "AI Engineer",
+    linkedin: "https://www.linkedin.com/in/himanshu-shekhar-406975218/",
+    image: "https://i.postimg.cc/5ysLTR6p/arjun.jpg" // External image URL
+  },
+  {
+    name: "Aditya Kumar Jaiswal",
+    role: "Quality Assurance Engineer",
+    linkedin: "https://www.linkedin.com/in/aditya-kumar-jaiswal-4a986b257/",
+    image: "https://i.postimg.cc/5yJc18MT/aditya.jpg" // External image URL
+  },
+  {
+    name: "RISHAV SISODIYA",
+    role: "Full stack developer",
+    linkedin: "https://www.linkedin.com/in/rishav-sisodiya-a64633294/",
+    image: "https://i.postimg.cc/MKcL4sRd/rishabhi.jpg" // External image URL
+  },
 ];
 
 export default function TeamPage() {
@@ -36,23 +73,7 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 glass-effect border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
-              <span className="text-lg sm:text-xl font-bold gradient-text">PagePerfect AI</span>
-            </Link>
-            <Link 
-              href="/"
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Home</span>
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar currentPath="/team" />
 
       {/* Team Section */}
       <section className="pt-32 sm:pt-40 pb-16 sm:pb-20 px-4 sm:px-6">
@@ -118,10 +139,9 @@ export default function TeamPage() {
       <footer className="border-t border-gray-200 py-8 sm:py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
+            <Link href="/" className="inline-flex items-center justify-center space-x-2 mb-4">
               <span className="text-lg sm:text-xl font-bold gradient-text">PagePerfect AI</span>
-            </div>
+            </Link>
             <p className="text-gray-600 text-sm mb-4">
               Professional AI book auditing and content quality solutions by{" "}
               <a href="https://zryth.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition underline">

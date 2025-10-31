@@ -39,7 +39,7 @@ function ContactForm() {
 
       <motion.form
         {...fadeIn}
-        action="https://formsubmit.co/apurvshashvat@gmail.com"
+        action="https://formsubmit.co/kushagra@zryth.com"
         method="POST"
         className="glass-effect rounded-2xl p-6 sm:p-8 bg-white"
       >

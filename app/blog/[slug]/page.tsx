@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import NextImage from "next/image";
 import { notFound, useParams } from "next/navigation";
 import { blogs } from "@/data/blogs";
 import Navbar from "@/components/Navbar";
@@ -55,10 +56,13 @@ export default function BlogPost() {
           {...fadeIn}
           className="relative h-96 w-full rounded-2xl overflow-hidden shadow-2xl"
         >
-          <img
+          <NextImage
             src={blog.image}
             alt={blog.title}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            priority
           />
           <div className="absolute top-6 right-6 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
             {blog.category}
@@ -209,10 +213,12 @@ export default function BlogPost() {
                     className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
                   >
                     <div className="relative h-48 w-full overflow-hidden">
-                      <img
+                      <NextImage
                         src={relatedBlog.image}
                         alt={relatedBlog.title}
-                        className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                        fill
+                        className="object-cover transform hover:scale-110 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 400px"
                       />
                     </div>
                     <div className="p-6">

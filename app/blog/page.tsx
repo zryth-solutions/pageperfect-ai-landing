@@ -91,9 +91,9 @@ export default function BlogPage() {
               </div>
               <div>
                 <label className="block text-sm text-gray-600 mb-2">Sort by</label>
-                <select
+              <select
                   value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value as any)}
+                  onChange={(e) => setSortOption(e.target.value as "newest" | "oldest" | "title")}
                   className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                 >
                   <option value="newest">Newest first</option>

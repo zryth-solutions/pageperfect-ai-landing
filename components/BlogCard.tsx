@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import NextImage from "next/image";
 import { motion } from "framer-motion";
 import { Blog } from "@/data/blogs";
 import ClockIcon from "./svg/ClockIcon";
@@ -22,10 +23,12 @@ export default function BlogCard({ blog }: BlogCardProps) {
     >
       <Link href={`/blog/${blog.slug}`}>
         <div className="relative h-48 w-full overflow-hidden">
-          <img
+          <NextImage
             src={blog.image}
             alt={blog.title}
-            className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+            fill
+            className="object-cover transform hover:scale-110 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, 400px"
           />
           <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
             {blog.category}

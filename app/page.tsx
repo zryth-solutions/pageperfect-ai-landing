@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Suspense } from "react";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
@@ -9,9 +10,6 @@ import {
   ArrowRight,
   Zap,
   Target,
-  Users,
-  BarChart3,
-  Globe,
   Star,
   Brain,
   X,
@@ -21,12 +19,18 @@ import {
   FileCheck,
   Languages,
   Layout,
-  Image,
+  Image as ImageIcon,
   GraduationCap
 } from "lucide-react";
 import TryItOut from "@/components/TryItOut";
 
-export default function Home() {
+const HERO_PHRASES = [
+  "10x Your Efficiency",
+  "Works in Weeknds",
+  "Works 24 x 7",
+];
+
+function HomeContent() {
   const searchParams = useSearchParams();
   const [showContactModal, setShowContactModal] = useState(false);
   const [formData, setFormData] = useState({
@@ -39,17 +43,12 @@ export default function Home() {
   });
   
   // Hero typewriter effect with erase-and-type cycle
-  const heroPhrases = [
-    "10x Your Efficiency",
-    "Works in Weeknds",
-    "Works 24 x 7",
-  ];
   const [heroPhraseIndex, setHeroPhraseIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   
   useEffect(() => {
-    const currentPhrase = heroPhrases[heroPhraseIndex];
+    const currentPhrase = HERO_PHRASES[heroPhraseIndex];
     const baseTypeSpeed = 100; // ms per character while typing
     const baseDeleteSpeed = 50; // ms per character while deleting
     const endHoldMs = 3000; // pause after full phrase typed (3s)
@@ -77,7 +76,7 @@ export default function Home() {
         setTypedText(next);
         if (next === "") {
           setIsDeleting(false);
-          setHeroPhraseIndex((prev) => (prev + 1) % heroPhrases.length);
+          setHeroPhraseIndex((prev) => (prev + 1) % HERO_PHRASES.length);
         }
       }
     }, timeoutDelay);
@@ -300,7 +299,7 @@ export default function Home() {
             <motion.div 
               className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
-              <Image className="w-10 h-10 sm:w-12 sm:h-12 text-pink-500 mb-4" />
+              <ImageIcon className="w-10 h-10 sm:w-12 sm:h-12 text-pink-500 mb-4" />
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">Book Cover Generator</h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">
                 Designs context-aware and brand-aligned book covers using AI.
@@ -609,5 +608,13 @@ export default function Home() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
   );
 }

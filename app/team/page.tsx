@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import NextImage from "next/image";
 import Navbar from "@/components/Navbar";
 

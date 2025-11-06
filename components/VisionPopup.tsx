@@ -8,7 +8,6 @@ export default function VisionPopup() {
   const [showPopup, setShowPopup] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [animationPhase, setAnimationPhase] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -23,17 +22,6 @@ export default function VisionPopup() {
       audio.addEventListener("ended", () => setIsSpeaking(false));
       audio.addEventListener("pause", () => {
         setIsSpeaking(false);
-        setAnimationPhase(0);
-      });
-
-      // Sync animation phases with audio timing
-      audio.addEventListener("timeupdate", () => {
-        const currentTime = audio.currentTime;
-        if (currentTime < 5) setAnimationPhase(1);
-        else if (currentTime < 10) setAnimationPhase(2);
-        else if (currentTime < 15) setAnimationPhase(3);
-        else if (currentTime < 20) setAnimationPhase(4);
-        else setAnimationPhase(5);
       });
 
       return () => {
@@ -169,7 +157,7 @@ export default function VisionPopup() {
               <div className="flex items-center justify-center py-4 md:py-0">
                 <div className="relative w-48 h-48 sm:w-60 sm:h-60 md:w-80 md:h-80">
                   {/* Animated Sphere */}
-                  <AnimatedSphere isSpeaking={isSpeaking} animationPhase={animationPhase} />
+                  <AnimatedSphere isSpeaking={isSpeaking} />
                   
                   {/* Floating icons - Hidden on small mobile */}
                   <motion.div
@@ -244,7 +232,7 @@ export default function VisionPopup() {
                   </h2>
                   
                   <p className="text-xs sm:text-sm md:text-lg text-gray-600 leading-relaxed break-words">
-                    We're revolutionizing how books are created, <span className="font-semibold text-blue-600 whitespace-nowrap">at half the cost</span>.
+                    We&rsquo;re revolutionizing how books are created, <span className="font-semibold text-blue-600 whitespace-nowrap">at half the cost</span>.
                   </p>
                 </motion.div>
 
@@ -309,7 +297,7 @@ export default function VisionPopup() {
 }
 
 // Animated Sphere Component
-function AnimatedSphere({ isSpeaking, animationPhase }: { isSpeaking: boolean; animationPhase: number }) {
+function AnimatedSphere({ isSpeaking }: { isSpeaking: boolean }) {
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       {/* Main sphere */}

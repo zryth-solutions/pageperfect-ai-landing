@@ -23,16 +23,18 @@ import {
   GraduationCap
 } from "lucide-react";
 import TryItOut from "@/components/TryItOut";
+import VisionPopup from "@/components/VisionPopup";
 
 const HERO_PHRASES = [
   "10x Your Efficiency",
-  "Works in Weeknds",
+  "Works in Weekends",
   "Works 24 x 7",
 ];
 
 function HomeContent() {
   const searchParams = useSearchParams();
   const [showContactModal, setShowContactModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -97,6 +99,53 @@ function HomeContent() {
     });
   };
 
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://zryth-server.zryth.com/api/mail/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form_type: 'Get Started Request',
+          full_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          product_interest: formData.plan,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('Your form has been submitted. We will contact you within 24 hours.');
+        setShowContactModal(false);
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          message: '',
+          plan: 'Basic'
+        });
+        // Redirect to success page
+        window.location.href = nextUrl;
+      } else {
+        alert(`Failed to submit form: ${result.message || 'Please try again later.'}`);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to submit form. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const [nextUrl, setNextUrl] = useState<string>("/");
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -110,8 +159,45 @@ function HomeContent() {
     }
   }, [searchParams]);
 
+  // Handle hash navigation on page load and hash change
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          // Small delay to ensure page is fully rendered
+          setTimeout(() => {
+            const navbar = document.querySelector('nav');
+            const navbarHeight = navbar ? navbar.offsetHeight : 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          }, 100);
+        }
+      }
+    };
+
+    // Handle initial hash on page load
+    handleHashScroll();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashScroll);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashScroll);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
+      {/* Vision Popup */}
+      <VisionPopup />
+      
       {/* Navigation */}
       <Navbar onGetStartedClick={() => setShowContactModal(true)} currentPath="/" />
 
@@ -278,9 +364,9 @@ function HomeContent() {
               className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
               <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-green-500 mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI Book Content Generator</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI Book Writing Agent</h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">
-                Generates structured book content based on topic, plot, and author style, including educational and research-oriented material.
+                Uses graph database to build plot, connect the dots, and then build a book that is actually relevant.
               </p>
               <p className="text-sm font-semibold text-green-600">For pricing contact us</p>
             </motion.div>
@@ -481,14 +567,9 @@ function HomeContent() {
             </div>
 
             <form
-              action="https://formsubmit.co/kushagra@zryth.com"
-              method="POST"
+              onSubmit={handleFormSubmit}
               className="space-y-4 sm:space-y-6"
             >
-              <input type="hidden" name="_cc" value="sharshit416@gmail.com, manas@zryth.com" />
-              <input type="hidden" name="_subject" value="New Get Started Request - PagePerfect AI" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value={nextUrl} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
@@ -551,7 +632,7 @@ function HomeContent() {
                 >
                   <option value="Basic">AI-powered Book Proofreader</option>
                   <option value="Professional">Multilingual Publishing AI Agent</option>
-                  <option value="Enterprise">AI Book Content Generator</option>
+                  <option value="Enterprise">AI Book Writing Agent</option>
                   <option value="Templates">AI Template and Style Sheet Generator</option>
                   <option value="Cover">Book Cover Generator</option>
                   <option value="Learning">Interactive Learning Generators</option>
@@ -576,10 +657,11 @@ function HomeContent() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <button
                   type="submit"
-                  className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-white hover:opacity-90 transition flex items-center justify-center gap-2 text-sm sm:text-base"
+                  disabled={isSubmitting}
+                  className="flex-1 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-white hover:opacity-90 transition flex items-center justify-center gap-2 text-sm sm:text-base disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Send Request
+                  {isSubmitting ? 'Sending...' : 'Send Request'}
                 </button>
                 <button
                   type="button"

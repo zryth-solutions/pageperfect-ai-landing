@@ -15,7 +15,7 @@ export default function Navbar({ onGetStartedClick, currentPath = "/" }: NavbarP
 
   const navLinks = [
     { href: "/#try", label: "Demo", isScroll: true },
-    { href: "/#features", label: "Features", isScroll: true },
+    { href: "/#offerings", label: "Features", isScroll: true },
     { href: "/#pricing", label: "Pricing", isScroll: true },
     { href: "/#testimonials", label: "Testimonials", isScroll: true },
     { href: "/blog", label: "Blog", isScroll: false },
@@ -28,10 +28,25 @@ export default function Navbar({ onGetStartedClick, currentPath = "/" }: NavbarP
     
     // If it's a scroll link and we're on the home page
     if (isScroll && currentPath === "/") {
-      const element = document.querySelector(href.substring(1)); // Remove the leading slash
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      // Small delay to ensure mobile menu closes before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(href.substring(1)); // Remove the leading slash
+        if (element) {
+          // Calculate navbar height (including padding)
+          const navbar = document.querySelector('nav');
+          const navbarHeight = navbar ? navbar.offsetHeight : 80;
+          
+          // Get element position
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20; // 20px extra padding
+          
+          // Smooth scroll with offset
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
     }
   };
 

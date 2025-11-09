@@ -12,6 +12,7 @@ import UserIcon from "@/components/svg/UserIcon";
 import TagIcon from "@/components/svg/TagIcon";
 import ArrowLeftIcon from "@/components/svg/ArrowLeftIcon";
 import ArrowRightIcon from "@/components/svg/ArrowRightIcon";
+import { generateBlogStructuredData } from "./metadata";
 
 export default function BlogPost() {
   const params = useParams();
@@ -22,6 +23,9 @@ export default function BlogPost() {
   if (!blog) {
     notFound();
   }
+
+  // Generate structured data
+  const structuredData = generateBlogStructuredData(slug);
 
   // Find previous and next blogs
   const currentIndex = blogs.findIndex((b) => b.slug === slug);
@@ -36,6 +40,20 @@ export default function BlogPost() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
+      {/* Structured Data for SEO */}
+      {structuredData && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.blogPostSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData.breadcrumbSchema) }}
+          />
+        </>
+      )}
+      
       {/* Header */}
       <Navbar currentPath="/blog" />
 

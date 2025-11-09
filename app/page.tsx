@@ -202,7 +202,7 @@ function HomeContent() {
       <Navbar onGetStartedClick={() => setShowContactModal(true)} currentPath="/" />
 
       {/* Hero Section */}
-      <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6" aria-label="Hero section">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="text-center"
@@ -211,34 +211,77 @@ function HomeContent() {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center px-3 sm:px-4 py-2 glass-effect rounded-full mb-4 sm:mb-6">
-              <span className="text-xs sm:text-sm text-blue-600">Powered by <a href="https://zryth.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 transition underline">Zryth Solutions</a></span>
+              <span className="text-xs sm:text-sm text-blue-600">Powered by <a href="https://zryth.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Zryth Solutions website" className="hover:text-blue-800 transition underline">Zryth Solutions</a></span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gray-900">
-              AI Book Auditing That
-              <span className="block gradient-text" aria-live="polite">
+            AI that writes faster 
+              {/* <span className="block gradient-text" aria-live="polite" aria-atomic="true">
                 {typedText}
-                <span className="typing-cursor">|</span>
-              </span>
+                <span className="typing-cursor" aria-hidden="true">|</span>
+              </span> */}
+            </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gray-900">
+              than deadlines
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
               Professional manuscript review with unmatched accuracy, custom knowledge base integration, and agentic workflows. 
               Perfect for authors, publishers, and writing professionals who demand excellence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
+            {/* <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
               <button 
                 onClick={() => setShowContactModal(true)}
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition text-sm sm:text-base"
               >
                 Start Free Trial <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
+            </div> */}
+          </motion.div>
+
+          {/* Dashboard Preview Image */}
+          <motion.div 
+            className="mt-12 sm:mt-16 px-4"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="relative max-w-6xl mx-auto">
+              {/* Browser mockup frame */}
+              <div className="glass-effect rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+                {/* Browser top bar */}
+                <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div className="flex-1 mx-4">
+                    <div className="bg-white rounded-md px-3 py-1 text-xs text-gray-500 max-w-md">
+                      wrytflow.com
+                    </div>
+                  </div>
+                </div>
+                {/* Dashboard image */}
+                <div className="relative w-full bg-gradient-to-br from-blue-50 to-purple-50">
+                  <img 
+                    src="https://i.postimg.cc/MTSkJFFH/page-perfect-dashboard.png" 
+                    alt="PagePerfect AI Dashboard showing AI-powered book auditing interface with manuscript analysis, proofreading tools, and quality metrics" 
+                    className="w-full h-auto"
+                    loading="eager"
+                    width="1200"
+                    height="675"
+                  />
+                </div>
+              </div>
+              {/* Decorative gradient blur */}
+              <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 blur-3xl -z-10"></div>
             </div>
           </motion.div>
 
           {/* Stats */}
           <motion.div 
-            className="mt-8 sm:mt-20 px-4"
+            className="mt-16 sm:mt-24 px-4"
             {...fadeIn}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.5 }}
           >
             {/* Mobile: Compact grid layout */}
             <div className="sm:hidden">
@@ -278,13 +321,13 @@ function HomeContent() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-12 sm:py-20 px-4 sm:px-6">
+      <section id="features" className="py-12 sm:py-20 px-4 sm:px-6" aria-labelledby="features-heading">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="text-center mb-12 sm:mb-16"
             {...fadeIn}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+            <h2 id="features-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
               Why Choose <span className="gradient-text">PagePerfect AI</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600">Specialized AI auditing for authors, publishers, and writing professionals</p>
@@ -325,29 +368,30 @@ function HomeContent() {
       </section>
 
       {/* Product Offerings Section */}
-      <section id="offerings" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <section id="offerings" className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50" aria-labelledby="offerings-heading">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="text-center mb-12 sm:mb-16"
             {...fadeIn}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+            <h2 id="offerings-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
               Our <span className="gradient-text">Product Offerings</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600">Comprehensive AI-powered solutions for book publishing and content creation</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <motion.div 
+          <motion.div 
               className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
-              <FileCheck className="w-10 h-10 sm:w-12 sm:h-12 text-blue-500 mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI-powered Book Proofreader</h3>
+              <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-green-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI Book Writing Agent</h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">
-                Detects grammatical, contextual, and stylistic errors, providing improvement suggestions for enhanced book quality.
+                Uses graph database to build plot, connect the dots, and then build a book that is actually relevant.
               </p>
-              <p className="text-sm font-semibold text-blue-600">For pricing contact us</p>
+              <p className="text-sm font-semibold text-green-600">For pricing contact us</p>
             </motion.div>
+
 
             <motion.div 
               className="glass-effect p-6 sm:p-8 rounded-2xl"
@@ -360,16 +404,17 @@ function HomeContent() {
               <p className="text-sm font-semibold text-purple-600">For pricing contact us</p>
             </motion.div>
 
-            <motion.div 
+             <motion.div 
               className="glass-effect p-6 sm:p-8 rounded-2xl"
             >
-              <Brain className="w-10 h-10 sm:w-12 sm:h-12 text-green-500 mb-4" />
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI Book Writing Agent</h3>
+              <FileCheck className="w-10 h-10 sm:w-12 sm:h-12 text-blue-500 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900">AI-powered Book Proofreader</h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">
-                Uses graph database to build plot, connect the dots, and then build a book that is actually relevant.
+                Detects grammatical, contextual, and stylistic errors, providing improvement suggestions for enhanced book quality.
               </p>
-              <p className="text-sm font-semibold text-green-600">For pricing contact us</p>
+              <p className="text-sm font-semibold text-blue-600">For pricing contact us</p>
             </motion.div>
+
 
             <motion.div 
               className="glass-effect p-6 sm:p-8 rounded-2xl"
@@ -411,13 +456,13 @@ function HomeContent() {
       <TryItOut />
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-12 sm:py-20 px-4 sm:px-6">
+      <section id="pricing" className="py-12 sm:py-20 px-4 sm:px-6" aria-labelledby="pricing-heading">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="text-center mb-12 sm:mb-16"
             {...fadeIn}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+            <h2 id="pricing-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
               Flexible <span className="gradient-text">Pricing</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600">Feature-wise pricing tailored to your needs</p>
@@ -461,13 +506,13 @@ function HomeContent() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-12 sm:py-20 px-4 sm:px-6">
+      <section id="testimonials" className="py-12 sm:py-20 px-4 sm:px-6" aria-labelledby="testimonials-heading">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="text-center mb-12 sm:mb-16"
             {...fadeIn}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+            <h2 id="testimonials-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
               Trusted by <span className="gradient-text">Industry Leaders</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600">See what authors and publishers say about us</p>

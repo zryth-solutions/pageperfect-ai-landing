@@ -288,7 +288,7 @@ export default function VisionPopup() {
             </div>
 
             {/* Bottom decorative line */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent" />
+            {/* <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent" /> */}
           </motion.div>
         </motion.div>
       )}

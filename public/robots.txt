@@ -1,0 +1,16 @@
+# robots.txt for PagePerfect AI
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://wrytflow.com/sitemap.xml
+
+# Disallow admin or private paths (if any)
+Disallow: /api/
+Disallow: /_next/
+
+# Allow all bots to crawl public pages
+Allow: /blog/
+Allow: /team/
+Allow: /contact/
+

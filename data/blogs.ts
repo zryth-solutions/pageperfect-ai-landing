@@ -18,7 +18,7 @@ export const blogs: Blog[] = [
     slug: "ai-revolutionizing-book-editing",
     title: "How AI is Revolutionizing Book Editing and Publishing",
     excerpt: "Discover how artificial intelligence is transforming the traditional book editing process, making it faster, more accurate, and accessible to authors worldwide.",
-    author: "Sarah Johnson",
+    author: "Ashish Gopalika",
     date: "2025-10-25",
     readTime: "8 min read",
     category: "AI Technology",
@@ -82,72 +82,64 @@ AI is not just changing how we edit books; it's democratizing the publishing ind
   {
     id: 2,
     slug: "future-of-ai-content-creation",
-    title: "The Future of AI in Content Creation: What Authors Need to Know",
-    excerpt: "Explore the emerging trends in AI-assisted content creation and how authors can leverage these tools to enhance their writing workflow.",
-    author: "Michael Chen",
+    title: "Is Your Question Bank Actually Correct? 80% Publishers Never Check This",
+    excerpt: "Most schools and publishers trust their question banks blindly. But 87% contain grammar errors, conceptual drifts, meaning hallucinations or marking misalignments. Here's why AI-based evaluation for question papers is now mandatory.",
+    author: " Apurv Shashvat",
     date: "2025-10-22",
-    readTime: "6 min read",
+    readTime: "1 min read",
     category: "Content Creation",
-    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=400&fit=crop",
-    tags: ["AI", "Writing", "Future Trends"],
+    image: "https://i.postimg.cc/9fkq1sJ2/blog1.png", // TODO: Change to the actual image
+    tags: ["Publishing", "Question Banks"],
     content: `
-# The Future of AI in Content Creation: What Authors Need to Know
 
-Content creation is evolving at an unprecedented pace, and artificial intelligence is at the forefront of this transformation. Authors who understand and embrace these changes will have a significant advantage in the competitive publishing landscape.
+## The Silent Problem in Education
 
-## Current State of AI Writing Tools
+When a question bank is created, most people assume it is correct by default — because senior teachers, subject heads or editors prepared it.
 
-Today's AI writing assistants offer impressive capabilities:
+**This assumption is the biggest silent problem in Indian education.**
 
-- **Grammar and spell checking** with contextual understanding
-- **Style suggestions** based on genre and audience
-- **Research assistance** for fact-checking and references
-- **Outline generation** to help structure complex narratives
+In reality, a huge percentage of question papers in schools and publication houses contain at least one major quality error:
 
-## Emerging Trends
+- Grammar confusion
+- Meaning ambiguity
+- Wrong fact / wrong year / wrong formula
+- Marking scheme mismatch
+- Misaligned difficulty level
 
-### 1. Personalized Writing Assistants
-Future AI tools will learn individual author styles and preferences, providing increasingly personalized suggestions.
+And inside the competitive exam prep category — this gets even more dangerous.
 
-### 2. Multi-language Support
-Advanced translation and localization features will help authors reach global audiences effortlessly.
+## What Schools Actually Don't Realize
 
-### 3. Interactive Story Development
-AI will assist in creating branching narratives and interactive content, opening new possibilities for storytelling.
+Research from international academic QC benchmarks shows that up to **87% of question papers are never manually audited** after creation.
 
-### 4. Real-time Collaboration
-Cloud-based AI tools will enable seamless collaboration between authors, editors, and other stakeholders.
+This means — students are being evaluated on something which itself is NOT evaluated.
 
-## Practical Applications
+In India, schools are rushing for NEP alignment… but question QC is still stuck in 1980s-style manual review.
 
-Authors can leverage AI for:
+## How AI Evaluation Changes the Foundation
 
-1. **Overcoming writer's block** with creative prompts and suggestions
-2. **Research efficiency** by quickly gathering and organizing information
-3. **Consistency maintenance** across long manuscripts
-4. **Market analysis** to understand trending topics and reader preferences
+AI can now detect:
 
-## Ethical Considerations
+- Grammar instability inside questions
+- Hidden ambiguity
+- Hallucination inside statements
+- Meaning drift between topic vs asked question
 
-As AI becomes more prevalent, authors must consider:
+**AI doesn't replace teachers. AI protects teachers from unintentional mistakes.**
 
-- **Maintaining authenticity** and originality
-- **Proper attribution** when using AI-generated content
-- **Understanding AI limitations** and potential biases
-- **Preserving the human element** in creative work
+## Why This Matters for Boards like CBSE / ICSE
 
-## Preparing for the Future
+Boards care about precision. Boards care about wording. Boards care about alignment.
 
-To stay ahead, authors should:
+**If the question is itself wrong → the entire fairness of marks collapses.**
 
-1. Experiment with different AI tools
-2. Understand their capabilities and limitations
-3. Develop a workflow that integrates AI effectively
-4. Continue honing their unique creative voice
+## The Future (2026 Onwards)
 
-## Conclusion
+Question bank QC will not remain optional. It will become compliance. Just like plagiarism detection became mandatory for research papers.
 
-The future of content creation is a partnership between human creativity and AI efficiency. Authors who embrace this collaboration while maintaining their artistic integrity will thrive in the evolving publishing landscape.
+WRYTFlow is building the exact evaluation layer — automated quality check before papers reach students.
+
+This is the new baseline for trust.
     `
   },
   {
@@ -155,7 +147,7 @@ The future of content creation is a partnership between human creativity and AI 
     slug: "maximizing-manuscript-quality",
     title: "5 Ways to Maximize Your Manuscript Quality with AI Auditing",
     excerpt: "Learn practical strategies for using AI auditing tools to elevate your manuscript quality and catch issues before publication.",
-    author: "Emily Rodriguez",
+    author: "Kushagra Agarwal",
     date: "2025-10-20",
     readTime: "7 min read",
     category: "Writing Tips",
@@ -281,7 +273,7 @@ AI auditing tools are powerful allies in the quest for manuscript excellence. By
     slug: "ai-vs-human-editors",
     title: "AI vs. Human Editors: Finding the Perfect Balance",
     excerpt: "Understanding when to use AI tools and when to rely on human expertise for the best editing results.",
-    author: "David Kim",
+    author: "Manas Dewari",
     date: "2025-10-18",
     readTime: "5 min read",
     category: "Industry Insights",
@@ -420,11 +412,11 @@ As AI technology advances, the relationship between AI and human editors will ev
 
 Consider these factors:
 
-1. **Project type**: Fiction needs more human input than technical writing
-2. **Budget**: Balance cost with quality requirements
-3. **Timeline**: AI accelerates the process significantly
-4. **Goals**: Publication standards vs. creative excellence
-5. **Experience level**: New authors benefit more from human mentorship
+1. Project type: Fiction needs more human input than technical writing
+2. Budget: Balance cost with quality requirements
+3. Timeline: AI accelerates the process significantly
+4. Goals: Publication standards vs. creative excellence
+5. Experience level: New authors benefit more from human mentorship
 
 ## Conclusion
 
@@ -438,7 +430,7 @@ The key is not to view AI as a replacement for human expertise but as a powerful
     slug: "self-publishing-with-ai-tools",
     title: "Self-Publishing Success: Leveraging AI Tools for Independent Authors",
     excerpt: "A comprehensive guide for indie authors on using AI tools to compete with traditional publishing houses.",
-    author: "Jessica Martinez",
+    author: "Shashank Kumar",
     date: "2025-10-15",
     readTime: "9 min read",
     category: "Self-Publishing",
@@ -453,11 +445,11 @@ The self-publishing revolution has empowered countless authors to bring their st
 
 Self-published authors typically face:
 
-- **Limited budgets** for professional services
-- **Time constraints** balancing writing with marketing
-- **Quality expectations** from increasingly sophisticated readers
-- **Competition** from both indie and traditionally published works
-- **Learning curve** across multiple publishing disciplines
+- Limited budgets for professional services
+- Time constraints balancing writing with marketing
+- Quality expectations from increasingly sophisticated readers
+- Competition from both indie and traditionally published works
+- Learning curve across multiple publishing disciplines
 
 ## How AI Changes the Game
 
@@ -465,10 +457,10 @@ AI tools democratize publishing by providing:
 
 ### 1. Professional Editing at Indie Prices
 
-**Traditional Cost**: $1,000-$5,000 for professional editing
-**AI-Assisted Cost**: $100-$500 for AI tools + targeted human editing
+Traditional Cost: $1,000-$5,000 for professional editing
+AI-Assisted Cost: $100-$500 for AI tools + targeted human editing
 
-**Strategy**:
+Strategy:
 - Use AI for developmental and line editing
 - Invest savings in professional copy editing
 - Focus human expertise where it matters most
@@ -481,7 +473,7 @@ AI tools can:
 - Design social media graphics
 - Optimize book descriptions
 
-**Implementation**:
+Implementation:
 - Use AI for initial designs and iterations
 - Refine with professional designer if needed
 - A/B test AI-generated marketing copy
@@ -495,7 +487,7 @@ AI platforms provide:
 - Reader preference insights
 - Pricing recommendations
 
-**Action Plan**:
+Action Plan:
 - Analyze successful books in your genre
 - Identify gaps and opportunities
 - Optimize your book's positioning
@@ -513,100 +505,100 @@ Beyond editing, AI can:
 
 ### Pre-Writing Phase
 
-**Use AI for**:
+Use AI for:
 - Genre research
 - Trend analysis
 - Outline generation
 - Character development templates
 
-**Time Saved**: 10-20 hours
-**Investment**: $0-$50/month
+Time Saved: 10-20 hours
+Investment: $0-$50/month
 
 ### Writing Phase
 
-**Use AI for**:
+Use AI for:
 - Real-time grammar checking
 - Consistency tracking
 - Research assistance
 - Overcoming writer's block
 
-**Productivity Gain**: 20-30%
-**Investment**: $10-$30/month
+Productivity Gain: 20-30%
+Investment: $10-$30/month
 
 ### Editing Phase
 
-**Use AI for**:
+Use AI for:
 - First-pass editing
 - Consistency checks
 - Style analysis
 - Proofreading
 
-**Cost Savings**: $500-$2,000
-**Investment**: $50-$200 one-time
+Cost Savings: $500-$2,000
+Investment: $50-$200 one-time
 
 ### Publishing Phase
 
-**Use AI for**:
+Use AI for:
 - Book description optimization
 - Metadata generation
 - Category selection
 - Pricing strategy
 
-**ROI**: Can increase discoverability by 50%+
-**Investment**: Minimal to free
+  ROI: Can increase discoverability by 50%+
+Investment: Minimal to free
 
 ### Marketing Phase
 
-**Use AI for**:
+Use AI for:
 - Email campaign creation
 - Social media content
 - Ad copy testing
 - Reader targeting
 
-**Efficiency Gain**: 3-5x faster content creation
-**Investment**: $20-$100/month
+Efficiency Gain: 3-5x faster content creation
+Investment: $20-$100/month
 
 ## Essential AI Tools for Indie Authors
 
 ### Editing Suite
-- **Grammar and Style**: AI-powered proofreading
-- **Consistency Checking**: Character and plot tracking
-- **Readability Analysis**: Audience appropriateness
+  - Grammar and Style: AI-powered proofreading
+  - Consistency Checking: Character and plot tracking
+  - Readability Analysis: Audience appropriateness
 
 ### Design Tools
-- **Cover Concepts**: AI-generated design ideas
-- **Marketing Graphics**: Social media templates
-- **Formatting**: Automated layout optimization
+  - Cover Concepts: AI-generated design ideas
+  - Marketing Graphics: Social media templates
+  - Formatting: Automated layout optimization
 
 ### Marketing Platform
-- **Copy Generation**: Book descriptions and ads
-- **Email Templates**: Reader engagement
-- **Analytics**: Performance tracking
+    - Copy Generation: Book descriptions and ads
+    - Email Templates: Reader engagement
+    - Analytics: Performance tracking
 
 ### Research Tools
-- **Market Analysis**: Competitor insights
-- **Keyword Research**: SEO optimization
-- **Trend Tracking**: Genre developments
+  - Market Analysis: Competitor insights
+  - Keyword Research: SEO optimization
+  - Trend Tracking: Genre developments
 
 ## Real Success Stories
 
 ### Case Study 1: Romance Author
-**Challenge**: Limited editing budget
-**Solution**: AI editing + targeted human review
-**Result**: 5-star reviews praising professional quality
-**Investment**: Saved $3,000, invested in marketing
+Challenge: Limited editing budget
+Solution: AI editing + targeted human review
+Result: 5-star reviews praising professional quality
+Investment: Saved $3,000, invested in marketing
 
 ### Case Study 2: Fantasy Series Author
-**Challenge**: Consistency across 5-book series
-**Solution**: AI consistency tracking throughout
-**Result**: Zero continuity errors reported
-**Investment**: $200 for AI tools vs. $5,000+ for full human edit
+Challenge: Consistency across 5-book series
+Solution: AI consistency tracking throughout
+Result: Zero continuity errors reported
+Investment: $200 for AI tools vs. $5,000+ for full human edit
 
 ### Case Study 3: Non-Fiction Author
-**Challenge**: Market positioning and keywords
-**Solution**: AI market analysis and optimization
-**Result**: 3x increase in organic discovery
-**Investment**: 10 hours + $50/month tool subscription
+Challenge: Market positioning and keywords
+Solution: AI market analysis and optimization
+Result: 3x increase in organic discovery
+Investment: 10 hours + $50/month tool subscription
 
 ## Best Practices for AI-Assisted Self-Publishing
 
@@ -646,29 +638,29 @@ Monitor:
 
 ## Common Pitfalls to Avoid
 
-1. **Over-reliance on AI**: Don't skip all human review
-2. **Generic output**: Customize and personalize AI content
-3. **Neglecting craft**: AI is a tool, not a replacement for skill
-4. **Rushing publication**: Quality still requires time
-5. **Ignoring feedback**: Balance AI with reader input
+1. Over-reliance on AI: Don't skip all human review
+2. Generic output: Customize and personalize AI content
+3. Neglecting craft: AI is a tool, not a replacement for skill
+4. Rushing publication: Quality still requires time
+5. Ignoring feedback: Balance AI with reader input
 
 ## The Financial Reality
 
-**Traditional Publishing Costs**:
+Traditional Publishing Costs:
 - Editing: $2,000-$5,000
 - Cover Design: $500-$2,000
 - Formatting: $200-$500
 - Marketing: $1,000+
-**Total**: $3,700-$8,500+
+Total: $3,700-$8,500+
 
-**AI-Assisted Publishing Costs**:
+AI-Assisted Publishing Costs:
 - AI Tools: $200-$500
 - Targeted Human Editing: $500-$1,000
 - Professional Cover: $500-$1,000
 - Marketing Tools: $200-$500
-**Total**: $1,400-$3,000
+Total: $1,400-$3,000
 
-**Potential Savings**: $2,300-$5,500 per book
+Potential Savings: $2,300-$5,500 per book
 
 ## Looking Ahead
 
@@ -695,7 +687,7 @@ Start small, experiment with different tools, and build a workflow that works fo
     slug: "ai-writing-assistants-comparison",
     title: "Complete Guide to AI Writing Assistants: Which One is Right for You?",
     excerpt: "An in-depth comparison of the top AI writing assistants available today, helping you choose the perfect tool for your writing needs.",
-    author: "Thomas Anderson",
+    author: "Kushagra Agarwal",
     date: "2025-10-12",
     readTime: "10 min read",
     category: "Tool Reviews",
@@ -711,228 +703,228 @@ The market for AI writing assistants has exploded, offering authors an overwhelm
 ### 1. Grammar and Style Checkers
 Focus on technical correctness and writing style.
 
-**Best for**: All writers, all genres
-**Key features**: Real-time error detection, style suggestions
-**Price range**: Free - $30/month
+Best for: All writers, all genres
+Key features: Real-time error detection, style suggestions
+Price range: Free - $30/month
 
 ### 2. Content Generation Tools
 Create new content based on prompts and parameters.
 
-**Best for**: Overcoming writer's block, brainstorming
-**Key features**: Text generation, idea expansion
-**Price range**: $10 - $100/month
+Best for: Overcoming writer's block, brainstorming
+Key features: Text generation, idea expansion
+Price range: $10 - $100/month
 
 ### 3. Editing and Enhancement Platforms
 Deep analysis and improvement suggestions.
 
-**Best for**: Manuscript polishing, professional editing
-**Key features**: Comprehensive analysis, consistency checking
-**Price range**: $50 - $500 one-time or subscription
+Best for: Manuscript polishing, professional editing
+Key features: Comprehensive analysis, consistency checking
+Price range: $50 - $500 one-time or subscription
 
 ### 4. Specialized Fiction Tools
 Designed specifically for creative writing.
 
-**Best for**: Novelists, screenwriters, storytellers
-**Key features**: Plot tracking, character development
-**Price range**: $100 - $300/year
+Best for: Novelists, screenwriters, storytellers
+Key features: Plot tracking, character development
+Price range: $100 - $300/year
 
 ### 5. Research and Fact-Checking
 Verify information and gather references.
 
-**Best for**: Non-fiction, academic writing
-**Key features**: Source validation, citation generation
-**Price range**: Free - $50/month
+Best for: Non-fiction, academic writing
+Key features: Source validation, citation generation
+Price range: Free - $50/month
 
 ## Top AI Writing Assistants Compared
 
 ### For Grammar and Style
 
 #### Option A
-**Strengths**:
+Strengths:
 - Excellent real-time detection
 - Extensive style library
 - Tone adjustment features
 - Browser integration
 
-**Weaknesses**:
+Weaknesses:
 - Can be overly prescriptive
 - Limited genre customization
 - Premium features are expensive
 
-**Best for**: General writing, emails, short-form content
-**Pricing**: Free basic, $12/month premium, $30/month business
+Best for: General writing, emails, short-form content
+Pricing: Free basic, $12/month premium, $30/month business
 
 #### Option B
-**Strengths**:
+Strengths:
 - Superior contextual understanding
 - Author-friendly interface
 - Offline capabilities
 - One-time purchase option
 
-**Weaknesses**:
+Weaknesses:
 - Steeper learning curve
 - Less frequent updates
 - Limited cloud features
 
-**Best for**: Professional authors, long-form content
-**Pricing**: $120 one-time or $15/month
+Best for: Professional authors, long-form content
+Pricing: $120 one-time or $15/month
 
 ### For Content Generation
 
 #### Platform X
-**Strengths**:
+Strengths:
 - Powerful generation capabilities
 - Multiple content types
 - API access
 - Regular updates
 
-**Weaknesses**:
+Weaknesses:
 - Can produce generic content
 - Requires careful prompting
 - Credit-based pricing
 
-**Best for**: Marketing copy, ideation, outlines
-**Pricing**: $20-$100/month based on usage
+Best for: Marketing copy, ideation, outlines
+Pricing: $20-$100/month based on usage
 
 #### Platform Y
-**Strengths**:
+Strengths:
 - Fiction-friendly
 - Character consistency
 - Story continuation
 - Long context window
 
-**Weaknesses**:
+Weaknesses:
 - Sometimes verbose
 - Needs editing
 - Higher cost
 
-**Best for**: Fiction writing, creative projects
-**Pricing**: $30-$60/month
+Best for: Fiction writing, creative projects
+Pricing: $30-$60/month
 
 ### For Manuscript Editing
 
 #### Tool Alpha
-**Strengths**:
+Strengths:
 - Comprehensive manuscript analysis
 - Consistency tracking
 - Multiple pass options
 - Detailed reports
 
-**Weaknesses**:
+Weaknesses:
 - One-time purchase per manuscript
 - Processing time varies
 - Learning curve for features
 
-**Best for**: Novel-length manuscripts, series
-**Pricing**: $199-$499 per manuscript
+Best for: Novel-length manuscripts, series
+Pricing: $199-$499 per manuscript
 
 #### Tool Beta
-**Strengths**:
+Strengths:
 - Subscription model
 - Unlimited manuscripts
 - Regular updates
 - Genre-specific templates
 
-**Weaknesses**:
+Weaknesses:
 - Monthly commitment
 - Internet required
 - Limited customization
 
-**Best for**: Prolific authors, multiple projects
-**Pricing**: $49/month or $399/year
+Best for: Prolific authors, multiple projects
+Pricing: $49/month or $399/year
 
 ### For Fiction Writers
 
 #### Fiction AI Pro
-**Strengths**:
+Strengths:
 - Plot structure analysis
 - Character arc tracking
 - Pacing visualization
 - Genre conventions database
 
-**Weaknesses**:
+  Weaknesses:
 - Fiction-only focus
 - Higher price point
 - Complex interface
 
-**Best for**: Serious fiction authors
+Best for: Serious fiction authors
 **Pricing**: $299/year
 
 #### Story Assistant
-**Strengths**:
+Strengths:
 - Intuitive interface
 - Affordable pricing
 - Basic plotting tools
 - Writing prompts
 
-**Weaknesses**:
+Weaknesses:
 - Limited advanced features
 - Smaller genre database
 - Basic reports
 
-**Best for**: Beginning fiction writers
-**Pricing**: $9.99/month
+Best for: Beginning fiction writers
+Pricing: $9.99/month
 
 ### For Non-Fiction
 
 #### Research AI
-**Strengths**:
+Strengths:
 - Fact-checking capabilities
 - Citation management
 - Source validation
 - Academic style guides
 
-**Weaknesses**:
+Weaknesses:
 - Non-fiction specific
 - Accuracy varies by topic
 - Requires verification
 
-**Best for**: Academic, technical writing
-**Pricing**: $25/month
+Best for: Academic, technical writing
+Pricing: $25/month
 
 #### Expert Writer
-**Strengths**:
+Strengths:
 - Industry-specific templates
 - Professional formatting
 - Collaboration features
 - Version control
 
-**Weaknesses**:
+Weaknesses:
 - Business focus
 - Higher learning curve
 - Team-oriented pricing
 
-**Best for**: Business and professional writing
-**Pricing**: $40/month per user
+Best for: Business and professional writing
+Pricing: $40/month per user
 
 ## Choosing the Right Tool: Decision Framework
 
 ### Step 1: Identify Your Primary Need
 
-**If you need**: Basic grammar and style checking
-**Choose**: Grammar-focused tools with free or low-cost options
+If you need: Basic grammar and style checking
+Choose: Grammar-focused tools with free or low-cost options
 
-**If you need**: Creative inspiration and idea generation
-**Choose**: Content generation platforms
+If you need: Creative inspiration and idea generation
+Choose: Content generation platforms
 
-**If you need**: Comprehensive manuscript editing
-**Choose**: Specialized editing platforms
+If you need: Comprehensive manuscript editing
+Choose: Specialized editing platforms
 
-**If you need**: Genre-specific features
-**Choose**: Fiction or non-fiction specialized tools
+If you need: Genre-specific features
+Choose: Fiction or non-fiction specialized tools
 
 ### Step 2: Consider Your Budget
 
-**Under $15/month**: Grammar checkers, basic writing assistants
-**$15-$50/month**: Advanced features, content generation
-**$50-$100/month**: Professional editing, specialized tools
-**$100+/month or one-time**: Premium manuscript editing, agency-level tools
+Under $15/month: Grammar checkers, basic writing assistants
+$15-$50/month: Advanced features, content generation
+$50-$100/month: Professional editing, specialized tools
+$100+/month or one-time: Premium manuscript editing, agency-level tools
 
 ### Step 3: Evaluate Your Technical Comfort
 
-**Beginner**: Choose user-friendly interfaces with tutorials
-**Intermediate**: Explore feature-rich platforms with customization
-**Advanced**: Consider API access and integration options
+  Beginner: Choose user-friendly interfaces with tutorials
+Intermediate: Explore feature-rich platforms with customization
+Advanced: Consider API access and integration options
 
 ### Step 4: Test Before Committing
 
@@ -965,10 +957,10 @@ Don't limit yourself to one tool. Many successful authors use combinations:
 ## Maximizing Your Investment
 
 ### Integration Tips
-1. **Workflow optimization**: Use each tool at the right stage
-2. **Feature overlap**: Avoid paying twice for same features
-3. **Complementary strengths**: Combine tools that fill gaps
-4. **Regular evaluation**: Review usage and value quarterly
+1. Workflow optimization: Use each tool at the right stage
+2. Feature overlap: Avoid paying twice for same features
+3. Complementary strengths: Combine tools that fill gaps
+4. Regular evaluation: Review usage and value quarterly
 
 ### Training and Mastery
 - Take advantage of tutorials and webinars
@@ -991,7 +983,7 @@ Avoid tools that:
 ### For Most Authors
 Start with a reputable grammar checker and add specialized tools as needed.
 
-**Recommended starter combination**:
+Recommended starter combination:
 - Grammar checker (free or $12/month)
 - Content generator ($20/month)
 - Budget: $20-$32/month
@@ -999,7 +991,7 @@ Start with a reputable grammar checker and add specialized tools as needed.
 ### For Serious Fiction Writers
 Invest in specialized fiction tools plus quality editing.
 
-**Recommended combination**:
+Recommended combination:
 - Premium grammar tool ($15/month)
 - Fiction-specific platform ($25/month)
 - Manuscript editor ($200-$500 per project)
@@ -1008,7 +1000,7 @@ Invest in specialized fiction tools plus quality editing.
 ### For Non-Fiction Authors
 Focus on research, fact-checking, and professional presentation.
 
-**Recommended combination**:
+Recommended combination:
 - Grammar and style checker ($15/month)
 - Research AI ($25/month)
 - Professional formatting tool ($20/month)
@@ -1017,7 +1009,7 @@ Focus on research, fact-checking, and professional presentation.
 ### For Prolific Writers
 Subscription-based unlimited tools offer best value.
 
-**Recommended combination**:
+Recommended combination:
 - All-in-one editing suite ($50/month)
 - Content generation ($30/month)
 - Specialized genre tool ($25/month)

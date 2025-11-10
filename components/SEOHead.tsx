@@ -16,7 +16,7 @@ interface SEOProps {
 export function generateMetadata({
   title,
   description,
-  keywords = 'AI book auditing, manuscript review, AI proofreading, book editing, publishing tools, content quality, AI writing assistant, PagePerfect AI',
+  keywords = 'AI book auditing, manuscript review, AI proofreading, book editing, publishing tools, content quality, AI writing assistant, Wrytflow AI',
   ogImage = 'https://i.postimg.cc/MTSkJFFH/page-perfect-dashboard.png',
   ogType = 'website',
   canonicalUrl,
@@ -26,14 +26,14 @@ export function generateMetadata({
   noindex = false,
 }: SEOProps): Metadata {
   const baseUrl = 'https://wrytflow.com';
-  const fullTitle = `${title} | PagePerfect AI`;
+  const fullTitle = `${title} | Wrytflow AI`;
   const canonical = canonicalUrl || baseUrl;
 
   const metadata: Metadata = {
     title: fullTitle,
     description,
     keywords,
-    authors: author ? [{ name: author }] : [{ name: 'PagePerfect AI Team' }],
+    authors: author ? [{ name: author }] : [{ name: 'Wrytflow AI Team' }],
     creator: 'Zryth Solutions',
     publisher: 'Zryth Solutions',
     robots: noindex ? 'noindex, nofollow' : 'index, follow',
@@ -44,7 +44,7 @@ export function generateMetadata({
       title: fullTitle,
       description,
       url: canonical,
-      siteName: 'PagePerfect AI',
+      siteName: 'Wrytflow AI',
       images: [
         {
           url: ogImage,
@@ -88,7 +88,7 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'PagePerfect AI',
+    name: 'Wrytflow AI',
     description: 'Professional AI-powered book auditing and manuscript review platform',
     url: 'https://wrytflow.com',
     logo: 'https://wrytflow.com/logo.png',
@@ -121,7 +121,7 @@ export function generateWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'PagePerfect AI',
+    name: 'Wrytflow AI',
     description: 'Professional AI Book Auditing for Authors & Publishers',
     url: 'https://wrytflow.com',
     potentialAction: {
@@ -139,7 +139,7 @@ export function generateSoftwareApplicationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'PagePerfect AI',
+    name: 'Wrytflow AI',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     offers: {
@@ -187,7 +187,7 @@ export function generateBlogPostSchema(
     },
     publisher: {
       '@type': 'Organization',
-      name: 'PagePerfect AI',
+      name: 'Wrytflow AI',
       logo: {
         '@type': 'ImageObject',
         url: 'https://wrytflow.com/logo.png',

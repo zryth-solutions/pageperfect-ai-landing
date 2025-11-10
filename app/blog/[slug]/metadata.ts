@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: blog.title,
     description: blog.excerpt,
-    keywords: [...blog.tags, 'AI book auditing', 'manuscript review', 'PagePerfect AI'].join(', '),
+    keywords: [...blog.tags, 'AI book auditing', 'manuscript review', 'Wrytflow AI'].join(', '),
     authors: [{ name: blog.author }],
     openGraph: {
       type: 'article',

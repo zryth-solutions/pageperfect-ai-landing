@@ -140,7 +140,7 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <Link href="/" className="inline-flex items-center justify-center space-x-2 mb-4">
-              <span className="text-lg sm:text-xl font-bold gradient-text">PagePerfect AI</span>
+              <span className="text-lg sm:text-xl font-bold gradient-text">Wrytflow AI</span>
             </Link>
             <p className="text-gray-600 text-sm mb-4">
               Professional AI book auditing and content quality solutions by{" "}

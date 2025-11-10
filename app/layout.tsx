@@ -13,8 +13,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://wrytflow.com'),
   title: {
-    default: "PagePerfect AI - Professional AI Book Auditing for Authors & Publishers",
-    template: "%s | PagePerfect AI"
+    default: "Wrytflow AI - Professional AI Book Auditing for Authors & Publishers",
+    template: "%s | Wrytflow AI"
   },
   description: "Transform your manuscripts with AI-powered auditing. 99.9% accuracy with custom knowledge bases and agentic workflows that 10x your content quality efficiency. Professional book proofreading, multilingual publishing, and AI writing tools by Zryth Solutions.",
   keywords: [
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
     "manuscript editing",
     "publishing automation",
     "AI agent",
-    "PagePerfect AI",
+    "Wrytflow AI",
     "Zryth Solutions"
   ],
-  authors: [{ name: "PagePerfect AI Team" }, { name: "Zryth Solutions" }],
+  authors: [{ name: "Wrytflow AI Team" }, { name: "Zryth Solutions" }],
   creator: "Zryth Solutions",
   publisher: "Zryth Solutions",
   formatDetection: {
@@ -51,21 +51,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://wrytflow.com",
-    siteName: "PagePerfect AI",
-    title: "PagePerfect AI - Professional AI Book Auditing for Authors & Publishers",
+    siteName: "Wrytflow AI",
+    title: "Wrytflow AI - Professional AI Book Auditing for Authors & Publishers",
     description: "Transform your manuscripts with AI-powered auditing. 99.9% accuracy, custom knowledge bases, and agentic workflows that 10x your efficiency.",
     images: [
       {
         url: "https://i.postimg.cc/MTSkJFFH/page-perfect-dashboard.png",
         width: 1200,
         height: 630,
-        alt: "PagePerfect AI Dashboard",
+        alt: "Wrytflow AI Dashboard",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PagePerfect AI - Professional AI Book Auditing",
+    title: "Wrytflow AI - Professional AI Book Auditing",
     description: "Transform your manuscripts with AI-powered auditing. 99.9% accuracy with 10x efficiency boost.",
     images: ["https://i.postimg.cc/MTSkJFFH/page-perfect-dashboard.png"],
     creator: "@ZrythSolutions",

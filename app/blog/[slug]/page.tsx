@@ -258,7 +258,7 @@ export default function BlogPost() {
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2025 PagePerfect AI by Zryth Solutions. All rights reserved.
+            © 2025 Wrytflow AI by Zryth Solutions. All rights reserved.
           </p>
         </div>
       </footer>

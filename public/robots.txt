@@ -1,4 +1,4 @@
-# robots.txt for PagePerfect AI
+# robots.txt for Wrytflow AI
 User-agent: *
 Allow: /
 

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
-            <h3 className="text-xl font-semibold text-white mb-3">PagePerfect AI</h3>
+            <h3 className="text-xl font-semibold text-white mb-3">Wrytflow AI</h3>
             <p className="text-sm text-gray-400">
               Professional AI book auditing and content quality solutions by
               <a
@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-400">© {new Date().getFullYear()} PagePerfect AI by Zryth Solutions. All rights reserved.</p>
+          <p className="text-xs text-gray-400">© {new Date().getFullYear()} Wrytflow AI by Zryth Solutions. All rights reserved.</p>
           <div className="flex items-center gap-5 text-sm">
             <a href="https://www.linkedin.com/company/zryth/" className="hover:text-white transition-colors">LinkedIn</a>
             <a href="https://github.com/zryth-solutions" className="hover:text-white transition-colors">GitHub</a>

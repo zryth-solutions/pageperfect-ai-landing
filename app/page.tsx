@@ -104,6 +104,7 @@ function HomeContent() {
     setIsSubmitting(true);
 
     try {
+      console.log('Submitting form to API...');
       const response = await fetch('https://zryth-server.zryth.com/api/mail/submit-form', {
         method: 'POST',
         headers: {
@@ -120,7 +121,14 @@ function HomeContent() {
         }),
       });
 
+      console.log('Response status:', response.status);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const result = await response.json();
+      console.log('Result:', result);
 
       if (result.success) {
         alert('Your form has been submitted. We will contact you within 24 hours.');
@@ -133,25 +141,16 @@ function HomeContent() {
           message: '',
           plan: 'Basic'
         });
-        // Redirect to success page
-        window.location.href = nextUrl;
       } else {
         alert(`Failed to submit form: ${result.message || 'Please try again later.'}`);
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('Failed to submit form. Please try again later.');
+      alert(`Failed to submit form: ${error instanceof Error ? error.message : 'Network error'}. Please contact us directly at contact@zryth.com or call +91-9870661438`);
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  const [nextUrl, setNextUrl] = useState<string>("/");
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setNextUrl(`${window.location.origin}/?lead=1`);
-    }
-  }, []);
 
   useEffect(() => {
     if (searchParams.get("lead") === "1") {
@@ -285,7 +284,7 @@ function HomeContent() {
             {...fadeIn}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-              Why Choose <span className="gradient-text">PagePerfect AI</span>
+              Why Choose <span className="gradient-text">Wrytflow AI</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600">Specialized AI auditing for authors, publishers, and writing professionals</p>
           </motion.div>
@@ -483,7 +482,7 @@ function HomeContent() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 text-sm sm:text-base">
-                &ldquo;PagePerfect AI transformed our educational content quality. With their custom knowledge base, we achieved 99.9% accuracy in textbook auditing. The agentic workflows reduced our review time by 10x while maintaining our high standards.&rdquo;
+                &ldquo;Wrytflow AI transformed our educational content quality. With their custom knowledge base, we achieved 99.9% accuracy in textbook auditing. The agentic workflows reduced our review time by 10x while maintaining our high standards.&rdquo;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex-shrink-0" />
@@ -528,7 +527,7 @@ function HomeContent() {
               Ready to <span className="gradient-text">10x Your Efficiency?</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
-              Join authors, publishers, and writing professionals using PagePerfect AI to achieve unmatched accuracy and 10x efficiency
+              Join authors, publishers, and writing professionals using Wrytflow AI to achieve unmatched accuracy and 10x efficiency
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <button 
@@ -562,7 +561,7 @@ function HomeContent() {
             </button>
             
             <div className="text-center mb-6">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">Get Started with PagePerfect AI</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">Get Started with Wrytflow AI</h3>
               <p className="text-gray-600 text-sm sm:text-base">Let&rsquo;s discuss your content auditing needs and analyze your books for quality</p>
             </div>
 

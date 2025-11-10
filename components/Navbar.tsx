@@ -58,7 +58,7 @@ export default function Navbar({ onGetStartedClick, currentPath = "/" }: NavbarP
           <Link href="/" className="flex items-center space-x-2 group">
             <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500 group-hover:text-blue-600 transition-colors" />
             <span className="text-lg sm:text-xl font-bold gradient-text">
-              PagePerfect AI
+              Wrytflow AI
             </span>
           </Link>
 

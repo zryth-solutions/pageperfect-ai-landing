@@ -44,7 +44,7 @@ function ContactForm() {
         className="glass-effect rounded-2xl p-6 sm:p-8 bg-white"
       >
         <input type="hidden" name="_cc" value="sharshit416@gmail.com, manas@zryth.com" />
-        <input type="hidden" name="_subject" value="New Contact Request - PagePerfect AI" />
+        <input type="hidden" name="_subject" value="New Contact Request - Wrytflow AI" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value={nextUrl} />
 
@@ -173,7 +173,7 @@ export default function ContactPage() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-400">© 2025 PagePerfect AI by Zryth Solutions. All rights reserved.</p>
+          <p className="text-gray-400">© 2025 Wrytflow AI by Zryth Solutions. All rights reserved.</p>
         </div>
       </footer>
     </main>

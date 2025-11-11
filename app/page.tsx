@@ -201,28 +201,32 @@ function HomeContent() {
       <Navbar onGetStartedClick={() => setShowContactModal(true)} currentPath="/" />
 
       {/* Hero Section */}
-      <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6" aria-label="Hero section">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 bg-gradient-to-b from-blue-50/30 via-purple-50/20 to-white relative overflow-hidden" aria-label="Hero section">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 right-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-10 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative">
           <motion.div 
             className="text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center px-3 sm:px-4 py-2 glass-effect rounded-full mb-4 sm:mb-6">
+            <div className="inline-flex items-center px-3 sm:px-4 py-2 glass-effect rounded-full mb-6 sm:mb-8">
               <span className="text-xs sm:text-sm text-blue-600">Powered by <a href="https://zryth.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Zryth Solutions website" className="hover:text-blue-800 transition underline">Zryth Solutions</a></span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gray-900">
-            AI that writes faster 
-              {/* <span className="block gradient-text" aria-live="polite" aria-atomic="true">
-                {typedText}
-                <span className="typing-cursor" aria-hidden="true">|</span>
-              </span> */}
+            
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight">
+              <span className="block text-gray-900 mb-2">AI that writes</span>
+              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
+                faster than deadlines
+              </span>
             </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gray-900">
-              than deadlines
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
+            
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4 leading-relaxed">
               Professional manuscript review with unmatched accuracy, custom knowledge base integration, and agentic workflows. 
               Perfect for authors, publishers, and writing professionals who demand excellence.
             </p>
@@ -236,51 +240,11 @@ function HomeContent() {
             </div> */}
           </motion.div>
 
-          {/* Dashboard Preview Image */}
-          <motion.div 
-            className="mt-12 sm:mt-16 px-4"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <div className="relative max-w-6xl mx-auto">
-              {/* Browser mockup frame */}
-              <div className="glass-effect rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-                {/* Browser top bar */}
-                <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                  </div>
-                  <div className="flex-1 mx-4">
-                    <div className="bg-white rounded-md px-3 py-1 text-xs text-gray-500 max-w-md">
-                      wrytflow.com
-                    </div>
-                  </div>
-                </div>
-                {/* Dashboard image */}
-                <div className="relative w-full bg-gradient-to-br from-blue-50 to-purple-50">
-                  <img 
-                    src="https://i.postimg.cc/MTSkJFFH/page-perfect-dashboard.png" 
-                    alt="Wrytflow AI Dashboard showing AI-powered book auditing interface with manuscript analysis, proofreading tools, and quality metrics" 
-                    className="w-full h-auto"
-                    loading="eager"
-                    width="1200"
-                    height="675"
-                  />
-                </div>
-              </div>
-              {/* Decorative gradient blur */}
-              <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-pink-400/20 blur-3xl -z-10"></div>
-            </div>
-          </motion.div>
-
           {/* Stats */}
           <motion.div 
-            className="mt-16 sm:mt-24 px-4"
+            className="mt-8 sm:mt-20 px-4"
             {...fadeIn}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.2 }}
           >
             {/* Mobile: Compact grid layout */}
             <div className="sm:hidden">
